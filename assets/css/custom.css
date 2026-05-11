@@ -7693,3 +7693,101 @@ i:hover, .fa:hover, .fas:hover, .far:hover, .fab:hover {
     color: var(--primary-color);
     line-height: 1.2;
 }
+
+/* Mobile Footer Optimization (Max-width: 767px) */
+@media (max-width: 767px) {
+    .main-footer {
+        padding: 60px 20px 0 !important;
+        text-align: center !important;
+    }
+
+    .about-footer {
+        margin-bottom: 40px !important;
+        margin-right: 0 !important;
+    }
+
+    .footer-logo {
+        margin: 0 auto 20px !important;
+        max-width: 200px !important;
+    }
+
+    .about-footer-content p {
+        text-align: center !important;
+        margin: 0 auto !important;
+        max-width: 100% !important;
+    }
+
+    .footer-social-links ul {
+        justify-content: center !important;
+        margin-top: 25px !important;
+    }
+
+    .footer-links {
+        margin-bottom: 40px !important;
+    }
+
+    .footer-links h3 {
+        text-align: center !important;
+        margin-bottom: 25px !important;
+    }
+
+    /* Quick Links 3-Column Grid */
+    .footer-links:not(.footer-contact-box) ul {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 15px 10px !important;
+        padding: 0 !important;
+        list-style: none !important;
+    }
+
+    .footer-links:not(.footer-contact-box) ul li {
+        margin: 0 !important;
+        text-align: center !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .footer-links:not(.footer-contact-box) ul li a {
+        font-size: 14px !important;
+        text-transform: capitalize !important;
+        padding: 0 !important;
+    }
+
+    /* Contact Box Optimization */
+    .footer-contact-box ul {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 0 !important;
+    }
+
+    .footer-contact-box ul li {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        margin-bottom: 25px !important;
+        width: 100% !important;
+    }
+
+    .footer-contact-box ul li i {
+        margin: 0 0 10px 0 !important;
+        font-size: 20px !important;
+        color: var(--accent-color) !important;
+    }
+
+    .footer-contact-box ul li a {
+        font-size: 15px !important;
+    }
+
+    .footer-copyright-text {
+        margin-top: 20px !important;
+        padding: 25px 0 !important;
+        text-align: center !important;
+    }
+
+    .footer-copyright-text p {
+        font-size: 13px !important;
+        margin: 0 !important;
+    }
+}
