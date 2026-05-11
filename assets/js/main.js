@@ -28,14 +28,6 @@
         });
     }
 
-    /* Slick Menu JS */
-    if ($('#menu').length) {
-        $('#menu').slicknav({
-            label: '',
-            prependTo: '.responsive-menu'
-        });
-    }
-
     if ($("a[href='#top']").length) {
         $(document).on("click", "a[href='#top']", function() {
             $("html, body").animate({

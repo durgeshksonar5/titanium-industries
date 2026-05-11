@@ -46,10 +46,47 @@ const HEADER_HTML = `<!-- Header Start -->
                         <!-- Header Contact Btn End -->
                     </div>
                     <!-- Main Menu End -->
-                    <div class="navbar-toggle"></div>
+                    
+                    <!-- Mobile Menu Toggle Start -->
+                    <button class="navbar-toggler" type="button" id="mobile-menu-trigger">
+                        <span class="navbar-toggler-icon">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </span>
+                    </button>
+                    <!-- Mobile Menu Toggle End -->
                 </div>
             </nav>
-            <div class="responsive-menu"></div>
+            
+            <!-- Mobile Menu Sidebar Start -->
+            <div class="mobile-menu-wrapper">
+                <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+                <div class="mobile-menu-content">
+                    <div class="mobile-menu-header">
+                        <div class="mobile-logo">
+                            <img src="assets/images/update-logo-transferent.png" alt="Logo">
+                        </div>
+                        <button class="close-menu" id="mobile-menu-close">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <div class="mobile-menu-body">
+                        <div id="mobile-nav"></div>
+                    </div>
+                    <div class="mobile-menu-footer">
+                        <div class="mobile-contact">
+                            <p>Get in touch</p>
+                            <a href="tel:9665771023"><i class="fa-solid fa-phone"></i> +91 96657 71023</a>
+                        </div>
+                        <div class="mobile-social">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu Sidebar End -->
         </div>
     </header>
     <!-- Header End -->`;
@@ -169,5 +206,85 @@ const FOOTER_HTML = `<!-- Footer Start -->
         link.parentElement.classList.add("active");
       }
     });
+
+    // Initialize Mobile Menu Logic
+    const mobileMenuTrigger = document.getElementById("mobile-menu-trigger");
+    const mobileMenuClose = document.getElementById("mobile-menu-close");
+    const mobileMenuWrapper = document.querySelector(".mobile-menu-wrapper");
+    const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+    const mobileNav = document.getElementById("mobile-nav");
+    const desktopMenu = document.getElementById("menu");
+
+    if (mobileMenuTrigger && desktopMenu && mobileNav) {
+      // Clone desktop menu to mobile for zero-redundancy updates
+      const mobileMenuContent = desktopMenu.cloneNode(true);
+      mobileMenuContent.removeAttribute("id");
+      mobileMenuContent.classList.remove("navbar-nav");
+      mobileMenuContent.classList.add("mobile-nav-list");
+
+      // Identify submenus in cloned structure
+      mobileMenuContent.querySelectorAll("li").forEach((li) => {
+        if (li.querySelector("ul")) {
+          li.classList.add("submenu");
+        }
+      });
+
+      mobileNav.appendChild(mobileMenuContent);
+
+      const openMenu = () => {
+        mobileMenuTrigger.classList.add("active");
+        mobileMenuWrapper.classList.add("active");
+        document.body.classList.add("menu-open");
+      };
+
+      const closeMenu = () => {
+        mobileMenuTrigger.classList.remove("active");
+        mobileMenuWrapper.classList.remove("active");
+        document.body.classList.remove("menu-open");
+      };
+
+      mobileMenuTrigger.addEventListener("click", openMenu);
+      if (mobileMenuClose) mobileMenuClose.addEventListener("click", closeMenu);
+      if (mobileMenuOverlay) mobileMenuOverlay.addEventListener("click", closeMenu);
+
+      // Handle submenu accordion toggling
+      mobileMenuContent.querySelectorAll(".submenu > a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          const parentLi = link.parentElement;
+          const subMenu = parentLi.querySelector("ul");
+          if (subMenu) {
+            e.preventDefault();
+            const isOpen = parentLi.classList.contains("open");
+            
+            // Close other open submenus if any (optional, for accordion feel)
+            mobileMenuContent.querySelectorAll(".submenu.open").forEach(openLi => {
+                if (openLi !== parentLi) {
+                    openLi.classList.remove("open");
+                    openLi.querySelector("ul").style.display = "none";
+                }
+            });
+
+            if (isOpen) {
+              parentLi.classList.remove("open");
+              subMenu.style.display = "none";
+            } else {
+              parentLi.classList.add("open");
+              subMenu.style.display = "block";
+            }
+          }
+        });
+      });
+
+      // Close menu when clicking a page link
+      mobileMenuContent.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (!link.parentElement.classList.contains("submenu")) {
+            closeMenu();
+          } else if (link.getAttribute("href") && link.getAttribute("href") !== "#") {
+            setTimeout(closeMenu, 150);
+          }
+        });
+      });
+    }
   });
 })();
