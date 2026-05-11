@@ -26,6 +26,7 @@ const HEADER_HTML = `<!-- Header Start -->
                                     </ul>
                                 </li>
                                 <li class="nav-item"><a class="nav-link" href="image-gallery.html">Gallery</a></li>
+                                <li class="nav-item"><a class="nav-link" href="clients.html">Clients</a></li>
                                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
                             </ul>
                         </div>
@@ -126,6 +127,7 @@ const FOOTER_HTML = `<!-- Footer Start -->
                             <li><a href="about.html">about us</a></li>
                             <li><a href="service.html">services</a></li>
                             <li><a href="image-gallery.html">gallery</a></li>
+                            <li><a href="clients.html">clients</a></li>
                             <li><a href="contact.html">contact us</a></li>
                         </ul>
                     </div>

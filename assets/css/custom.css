@@ -7430,3 +7430,36 @@ i, .fa, .fas, .far, .fab {
 i:hover, .fa:hover, .fas:hover, .far:hover, .fab:hover { 
     color: var(--accent-gold); 
 }
+
+/* Clients Page Styles */
+.our-clients {
+    padding: 100px 0;
+    background-color: var(--bg-light);
+}
+
+.client-logo-box {
+    background: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+}
+
+.client-logo-box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-premium);
+    border-color: var(--accent-gold);
+}
+
+.client-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.2;
+}
