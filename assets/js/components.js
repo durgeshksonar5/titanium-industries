@@ -156,7 +156,7 @@ const FOOTER_HTML = `<!-- Footer Start -->
                 <div class="col-lg-12">
                     <!-- Copyright Text Start -->
                     <div class="footer-copyright-text">
-                        <p>Copyright © 2026 Titanium Industries. All Rights Reserved.</p>
+                        <p style="display: block; line-height: 1.8;">Copyright © 2026 Titanium Industries. All Rights Reserved. <br> Designed & Developed by  <a href="#" style="color: var(--accent-color); font-weight: 700; display: inline-flex; align-items: center; gap: 8px; vertical-align: middle;"> <img src="assets/images/hds-logo.png" alt="HDS Logo" style="height: 28px; width: auto;"></a></p>
                     </div>
                     <!-- Copyright Text End -->
                 </div>
@@ -245,7 +245,8 @@ const FOOTER_HTML = `<!-- Footer Start -->
 
       mobileMenuTrigger.addEventListener("click", openMenu);
       if (mobileMenuClose) mobileMenuClose.addEventListener("click", closeMenu);
-      if (mobileMenuOverlay) mobileMenuOverlay.addEventListener("click", closeMenu);
+      if (mobileMenuOverlay)
+        mobileMenuOverlay.addEventListener("click", closeMenu);
 
       // Handle submenu accordion toggling
       mobileMenuContent.querySelectorAll(".submenu > a").forEach((link) => {
@@ -255,14 +256,16 @@ const FOOTER_HTML = `<!-- Footer Start -->
           if (subMenu) {
             e.preventDefault();
             const isOpen = parentLi.classList.contains("open");
-            
+
             // Close other open submenus if any (optional, for accordion feel)
-            mobileMenuContent.querySelectorAll(".submenu.open").forEach(openLi => {
+            mobileMenuContent
+              .querySelectorAll(".submenu.open")
+              .forEach((openLi) => {
                 if (openLi !== parentLi) {
-                    openLi.classList.remove("open");
-                    openLi.querySelector("ul").style.display = "none";
+                  openLi.classList.remove("open");
+                  openLi.querySelector("ul").style.display = "none";
                 }
-            });
+              });
 
             if (isOpen) {
               parentLi.classList.remove("open");
@@ -280,7 +283,10 @@ const FOOTER_HTML = `<!-- Footer Start -->
         link.addEventListener("click", () => {
           if (!link.parentElement.classList.contains("submenu")) {
             closeMenu();
-          } else if (link.getAttribute("href") && link.getAttribute("href") !== "#") {
+          } else if (
+            link.getAttribute("href") &&
+            link.getAttribute("href") !== "#"
+          ) {
             setTimeout(closeMenu, 150);
           }
         });
