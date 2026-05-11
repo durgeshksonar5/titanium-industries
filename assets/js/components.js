@@ -18,10 +18,11 @@ const HEADER_HTML = `<!-- Header Start -->
                                 <li class="nav-item submenu"><a class="nav-link" href="service.html">Services</a>
                                     <ul>
                                         <li class="nav-item"><a class="nav-link" href="service.html">All Services</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="service/service-single.html">Sustainable Farming</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="service/service-single.html">Organic Cultivation</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="service/service-single.html">Natural Irrigation</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="service/service-single.html">Soil Health Solutions</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="service/service-single.html">VMC Machining</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="service/service-single.html">CNC Turning</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="service/service-single.html">Oil & Gas Components</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="service/service-single.html">Robotics Fixtures</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="service/service-single.html">Automobile Parts</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item"><a class="nav-link" href="image-gallery.html">Gallery</a></li>
@@ -38,7 +39,7 @@ const HEADER_HTML = `<!-- Header Start -->
                                 </div>
                                 <div class="header-contact-item-content">
                                     <p>call us now</p>
-                                    <h3><a href="tel:987965698">+1.987 965 698</a></h3>
+                                    <h3><a href="tel:9665771023">+91 96657 71023</a></h3>
                                 </div>
                             </div>
                             <!-- Header Contact Item End -->
@@ -68,8 +69,8 @@ const FOOTER_HTML = `<!-- Footer Start -->
                     <div class="footer-header">
                         <!-- Section Title Start -->
                         <div class="section-title">
-                            <h2 class="text-anime-style-2" data-cursor="-opaque">Subscribe our newsletters</h2>
-                            <p>“Our Community of 5000+ Expert Farmers Today!"</p>
+                            <h2 class="text-anime-style-2" data-cursor="-opaque">Stay Updated with Industry News</h2>
+                            <p>“Join our network of 500+ satisfied industrial clients today!"</p>
                         </div>
                         <!-- Section Title End -->
 
@@ -98,7 +99,7 @@ const FOOTER_HTML = `<!-- Footer Start -->
 
                         <!-- About Footer Content Start -->
                         <div class="about-footer-content">
-                            <p>We promote sustainable farming and organic produce to ensure a healthier, greener, and eco-friendly future.</p>
+                            <p>Titanium Industries specializes in precision VMC and CNC machining, serving the Oil, Robotics, and Automotive sectors with excellence.</p>
                         </div>
                         <!-- About Footer Content End -->
 
@@ -124,8 +125,8 @@ const FOOTER_HTML = `<!-- Footer Start -->
                             <li><a href="index.html">home</a></li>
                             <li><a href="about.html">about us</a></li>
                             <li><a href="service.html">services</a></li>
-                            <li><a href="projects.html">projects</a></li>
-                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="image-gallery.html">gallery</a></li>
+                            <li><a href="contact.html">contact us</a></li>
                         </ul>
                     </div>
                     <!-- Footer Links End -->
@@ -134,13 +135,13 @@ const FOOTER_HTML = `<!-- Footer Start -->
                 <div class="col-lg-3 col-md-4">
                     <!-- Footer Links Start -->
                     <div class="footer-links">
-                        <h3>Services</h3>
+                        <h3>Our Services</h3>
                         <ul>
-                            <li><a href="service/service-single.html">Organic Crop Cultivation</a></li>
-                            <li><a href="service/service-single.html">Eco-Friendly Fertilization</a></li>
-                            <li><a href="service/service-single.html">Farm-to-Table Solutions</a></li>
-                            <li><a href="service/service-single.html">Biodiversity Preservation</a></li>
-                            <li><a href="service/service-single.html">Agroforestry Development</a></li>
+                            <li><a href="service/service-single.html">VMC Machining</a></li>
+                            <li><a href="service/service-single.html">CNC Turning Solutions</a></li>
+                            <li><a href="service/service-single.html">Oil & Gas Components</a></li>
+                            <li><a href="service/service-single.html">Robotics BIW Fixtures</a></li>
+                            <li><a href="service/service-single.html">Precision Engineering</a></li>
                         </ul>
                     </div>
                     <!-- Footer Links End -->
@@ -151,9 +152,9 @@ const FOOTER_HTML = `<!-- Footer Start -->
                     <div class="footer-links footer-contact-box">
                         <h3>contact us</h3>
                         <ul>
-                            <li><i class="fa-solid fa-phone"></i><a href="tel:987965698">+1.987 965 698</a></li>
-                            <li><i class="fa-solid fa-envelope"></i><a href="mailto:info@domainname.com">info@domainname.com</a></li>
-                            <li><i class="fa-solid fa-location-dot"></i>123 Greenfield Lane W1A 1AA UK </li>
+                            <li><i class="fa-solid fa-phone"></i><a href="tel:9665771023">+91 96657 71023</a></li>
+                            <li><i class="fa-solid fa-envelope"></i><a href="mailto:titaniumindustries21@gmail.com">titaniumindustries21@gmail.com</a></li>
+                            <li><i class="fa-solid fa-location-dot"></i>Sr. No 54, Plot No-83, Swami V H SOCY Industrial Estate, Pune - 411028</li>
                         </ul>
                     </div>
                     <!-- Footer Contact Box End -->
@@ -162,7 +163,7 @@ const FOOTER_HTML = `<!-- Footer Start -->
                 <div class="col-lg-12">
                     <!-- Copyright Text Start -->
                     <div class="footer-copyright-text">
-                        <p>Copyright © 2025 All Rights Reserved.</p>
+                        <p>Copyright © 2026 Titanium Industries. All Rights Reserved.</p>
                     </div>
                     <!-- Copyright Text End -->
                 </div>
