@@ -5,7 +5,7 @@ const HEADER_HTML = `<!-- Header Start -->
                 <div class="container-fluid">
                     <!-- Logo Start -->
                     <a class="navbar-brand" href="./">
-						<img src="assets/images/logo/logo.svg" alt="Logo">
+						<img src="assets/images/update-logo-transferent.png" alt="Logo">
 					</a>
                     <!-- Logo End -->
 
@@ -13,33 +13,19 @@ const HEADER_HTML = `<!-- Header Start -->
                     <div class="collapse navbar-collapse main-menu">
                         <div class="nav-menu-wrapper">
                             <ul class="navbar-nav mr-auto" id="menu">
-                                <li class="nav-item submenu"><a class="nav-link" href="./">Home</a>
+                                <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                                <li class="nav-item submenu"><a class="nav-link" href="service.html">Services</a>
                                     <ul>
-                                        <li class="nav-item"><a class="nav-link" href="index.html">Home - Main</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-video.html">Home - Video</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-slider.html">Home - Slider</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="service.html">All Services</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="service/service-single.html">Sustainable Farming</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="service/service-single.html">Organic Cultivation</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="service/service-single.html">Natural Irrigation</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="service/service-single.html">Soil Health Solutions</a></li>
                                     </ul>
                                 </li>
-                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a>
-                                    <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                                    <li class="nav-item submenu"><a class="nav-link" href="#">Pages</a>
-                                        <ul>
-                                            <li class="nav-item"><a class="nav-link" href="service/service-single.html">Service Details</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog Details</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="projects.html">Our Projects</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="project-single.html">Project details</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="team-single.html">Team Details</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing Plan</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="image-gallery.html">Image Gallery</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="video-gallery.html">Video Gallery</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="faqs.html">FAQs</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="404.html">404</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="image-gallery.html">Gallery</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
                             </ul>
                         </div>
 
@@ -106,7 +92,7 @@ const FOOTER_HTML = `<!-- Footer Start -->
                     <div class="about-footer">
                         <!-- Footer Logo Start -->
                         <div class="footer-logo">
-                            <img src="assets/images/logo/footer-logo.svg" alt="">
+                            <img src="assets/images/update-logo-transferent.png" alt="">
                         </div>
                         <!-- Footer Logo End -->
 
@@ -185,35 +171,46 @@ const FOOTER_HTML = `<!-- Footer Start -->
     </footer>
     <!-- Footer End -->`;
 
-(function() {
-    const isSubfolder = window.location.pathname.includes('/service/');
-    const prefix = isSubfolder ? '../' : '';
+(function () {
+  const isSubfolder = window.location.pathname.includes("/service/");
+  const prefix = isSubfolder ? "../" : "";
 
-    function fixPaths(html) {
-        return html.replace(/(href|src)="([^#][^\"]*)"/g, (match, attr, path) => {
-            if (path.startsWith('http') || path.startsWith('tel:') || path.startsWith('mailto:') || path.startsWith('javascript:')) return match;
-            if (path.startsWith('../')) return match;
-            return `${attr}="${prefix}${path}"`;
-        });
-    }
-
-    const headerHTML = fixPaths(HEADER_HTML);
-    const footerHTML = fixPaths(FOOTER_HTML);
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const headerPlaceholder = document.querySelector('header.main-header');
-        if (headerPlaceholder) headerPlaceholder.outerHTML = headerHTML;
-        
-        const footerPlaceholder = document.querySelector('footer.main-footer');
-        if (footerPlaceholder) footerPlaceholder.outerHTML = footerHTML;
-        
-        // Set active link
-        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-        document.querySelectorAll('.nav-link').forEach(link => {
-            let href = link.getAttribute('href');
-            if (href && (href.endsWith(currentPath) || (currentPath === '' && href.endsWith('index.html')))) {
-                link.parentElement.classList.add('active');
-            }
-        });
+  function fixPaths(html) {
+    return html.replace(/(href|src)="([^#][^\"]*)"/g, (match, attr, path) => {
+      if (
+        path.startsWith("http") ||
+        path.startsWith("tel:") ||
+        path.startsWith("mailto:") ||
+        path.startsWith("javascript:")
+      )
+        return match;
+      if (path.startsWith("../")) return match;
+      return `${attr}="${prefix}${path}"`;
     });
+  }
+
+  const headerHTML = fixPaths(HEADER_HTML);
+  const footerHTML = fixPaths(FOOTER_HTML);
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const headerPlaceholder = document.querySelector("header.main-header");
+    if (headerPlaceholder) headerPlaceholder.outerHTML = headerHTML;
+
+    const footerPlaceholder = document.querySelector("footer.main-footer");
+    if (footerPlaceholder) footerPlaceholder.outerHTML = footerHTML;
+
+    // Set active link
+    const currentPath =
+      window.location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".nav-link").forEach((link) => {
+      let href = link.getAttribute("href");
+      if (
+        href &&
+        (href.endsWith(currentPath) ||
+          (currentPath === "" && href.endsWith("index.html")))
+      ) {
+        link.parentElement.classList.add("active");
+      }
+    });
+  });
 })();
