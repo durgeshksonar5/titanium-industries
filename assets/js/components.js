@@ -15,15 +15,7 @@ const HEADER_HTML = `<!-- Header Start -->
                             <ul class="navbar-nav mr-auto" id="menu">
                                 <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
                                 <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                                <li class="nav-item submenu"><a class="nav-link" href="service.html">Services</a>
-                                    <ul>
-                                        <li class="nav-item"><a class="nav-link" href="service.html">All Services</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="service/service-single.html">VMC Machining</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="service/service-single.html">CNC Turning</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="service/service-single.html">Oil & Gas Components</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="service/service-single.html">Robotics Fixtures</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="service/service-single.html">Automobile Parts</a></li>
-                                    </ul>
+                                <li class="nav-item"><a class="nav-link" href="service.html">Services</a>
                                 </li>
                                 <li class="nav-item"><a class="nav-link" href="image-gallery.html">Gallery</a></li>
                                 <li class="nav-item"><a class="nav-link" href="clients.html">Clients</a></li>
@@ -61,35 +53,13 @@ const HEADER_HTML = `<!-- Header Start -->
         </div>
     </header>
     <!-- Header End -->`;
+
 const FOOTER_HTML = `<!-- Footer Start -->
     <footer class="main-footer dark-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <!-- Footer Header Start -->
-                    <div class="footer-header">
-                        <!-- Section Title Start -->
-                        <div class="section-title">
-                            <h2 class="text-anime-style-2" data-cursor="-opaque">Stay Updated with Industry News</h2>
-                            <p>“Join our network of 500+ satisfied industrial clients today!"</p>
-                        </div>
-                        <!-- Section Title End -->
 
-                        <!-- Footer Newsletter Form Start -->
-                        <div class="footer-newsletter-form">
-                            <form id="newslettersForm" action="#" method="POST">
-                                <div class="form-group">
-                                    <input type="email" name="mail" class="form-control" id="mail" placeholder="Enter your email" required>
-                                    <button type="submit" class="btn-default">subscribe</button>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- Footer Newsletter Form End -->
-                    </div>
-                    <!-- Footer Header End -->
-                </div>
-
-                <div class="col-lg-4">
+                <div class="col-lg-5 col-md-12 mb-5 mb-lg-0">
                     <!-- About Footer Start -->
                     <div class="about-footer">
                         <!-- Footer Logo Start -->
@@ -107,8 +77,6 @@ const FOOTER_HTML = `<!-- Footer Start -->
                         <!-- Footer Social Link Start -->
                         <div class="footer-social-links">
                             <ul>
-                                <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
                                 <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
                                 <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
                             </ul>
@@ -118,7 +86,7 @@ const FOOTER_HTML = `<!-- Footer Start -->
                     <!-- About Footer End -->
                 </div>
 
-                <div class="col-lg-2 col-md-3">
+                <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
                     <!-- Footer Links Start -->
                     <div class="footer-links">
                         <h3>quick links</h3>
@@ -134,22 +102,8 @@ const FOOTER_HTML = `<!-- Footer Start -->
                     <!-- Footer Links End -->
                 </div>
 
-                <div class="col-lg-3 col-md-4">
-                    <!-- Footer Links Start -->
-                    <div class="footer-links">
-                        <h3>Our Services</h3>
-                        <ul>
-                            <li><a href="service/service-single.html">VMC Machining</a></li>
-                            <li><a href="service/service-single.html">CNC Turning Solutions</a></li>
-                            <li><a href="service/service-single.html">Oil & Gas Components</a></li>
-                            <li><a href="service/service-single.html">Robotics BIW Fixtures</a></li>
-                            <li><a href="service/service-single.html">Precision Engineering</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Links End -->
-                </div>
 
-                <div class="col-lg-3 col-md-5">
+                <div class="col-lg-4 col-md-6">
                     <!-- Footer Contact Box Start -->
                     <div class="footer-links footer-contact-box">
                         <h3>contact us</h3>

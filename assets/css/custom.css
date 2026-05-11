@@ -363,7 +363,7 @@ body {
     top: 0;
     transform: translateX(-2px);
     background-color: var(--accent-color);
-    background-image: url('../images/arrow-primary.svg');
+    background-image: url('../images/icons/arrow-primary.svg');
     background-repeat: no-repeat;
     background-position: center top 4px;
     background-size: 16px auto;
@@ -1230,49 +1230,54 @@ header.main-header .header-sticky.active .main-menu ul li a:hover {
     padding: 100px 0;
 }
 
-.about-us-images {
+.about-us-images.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 15px;
     position: relative;
-    display: flex;
-    justify-content: center;
-    margin-right: 20px;
+    height: 550px;
 }
 
-.about-us-img-1 {
+.about-us-images.bento-grid .bento-item {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-premium);
+    transition: all 0.4s ease-in-out;
+}
+
+.about-us-images.bento-grid .bento-item:hover {
+    transform: translateY(-5px);
+}
+
+.about-us-img-1.bento-item {
+    grid-column: 1 / 8;
+    grid-row: 1 / 8;
+}
+
+.about-us-img-2.bento-item {
+    grid-column: 5 / 11;
+    grid-row: 5 / 11;
+    z-index: 2;
+    border: 8px solid var(--white-color);
+}
+
+.about-us-images.bento-grid .bento-item figure,
+.about-us-images.bento-grid .bento-item img {
     width: 100%;
-    max-width: 290px;
-    transform: rotate(-6.64deg);
-}
-
-.about-us-img-2 {
-    width: 100%;
-    max-width: 330px;
-    margin-top: 70px;
-    margin-left: -90px;
-    transform: rotate(13.54deg);
-}
-
-.about-us-img-2 figure,
-.about-us-img-1 figure {
-    display: block;
-    border-radius: 999px;
-}
-
-.about-us-img-2 figure {
-    border: 6px solid var(--white-color);
-}
-
-.about-us-img-2 img,
-.about-us-img-1 img {
-    width: 100%;
-    aspect-ratio: 1 / 1.72;
+    height: 100%;
     object-fit: cover;
-    border-radius: 999px;
+    aspect-ratio: 1 / 1;
+    display: block;
+    border-radius: 20px;
 }
 
 .experience-circle {
     position: absolute;
-    bottom: 40px;
-    left: 70px;
+    bottom: -30px;
+    left: -30px;
+    z-index: 3;
 }
 
 .experience-circle img {
@@ -2067,7 +2072,9 @@ header.main-header .header-sticky.active .main-menu ul li a:hover {
 }
 
 .our-project-nav ul li .nav-link::before {
-    content: '';
+    content: '\f061';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
     position: absolute;
     top: 50%;
     bottom: 0;
@@ -2077,10 +2084,11 @@ header.main-header .header-sticky.active .main-menu ul li a:hover {
     height: 60px;
     border-radius: 50%;
     background-color: var(--accent-color);
-    background-image: url('../images/arrow-primary.svg');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 34px auto;
+    color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
 }
 
 .our-project-nav ul li .nav-link::after {
@@ -2859,7 +2867,7 @@ header.main-header .header-sticky.active .main-menu ul li a:hover {
     top: 0;
     transform: rotate(90deg);
     background-color: var(--accent-color);
-    background-image: url(../images/arrow-primary.svg);
+    background-image: url(../images/icons/arrow-primary.svg);
     background-repeat: no-repeat;
     background-position: center top 4px;
     background-size: 16px auto;
@@ -3113,6 +3121,7 @@ header.main-header .header-sticky.active .main-menu ul li a:hover {
     background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
     background-size: 40px 40px;
     z-index: 0;
+    pointer-events: none;
 }
 
 .footer-header {
@@ -3195,7 +3204,11 @@ header.main-header .header-sticky.active .main-menu ul li a:hover {
 
 .footer-logo img {
     width: 100%;
-    max-width: 200px;
+    max-width: 90px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 12px;
+    object-fit: contain;
 }
 
 .about-footer-content p {
@@ -4095,7 +4108,7 @@ header.main-header .header-sticky.active .main-menu ul li a:hover {
 }
 
 .page-catagery-list ul li:hover a::before {
-    background-image: url('../images/arrow-primary.svg');
+    background-image: url('../images/icons/arrow-primary.svg');
     background-color: var(--accent-color);
 }
 
@@ -7426,20 +7439,38 @@ i:hover, .fa:hover, .fas:hover, .far:hover, .fab:hover {
     background: var(--white-color);
     border: 1px solid var(--border-color);
     border-radius: 15px;
-    height: 150px;
+    height: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
-    transition: all 0.3s ease-in-out;
+    padding: 30px;
+    transition: all 0.4s ease-in-out;
     box-shadow: var(--shadow-sm);
     text-align: center;
+    overflow: hidden;
+}
+
+.client-logo-box img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.4s ease-in-out;
+    filter: grayscale(100%);
+    opacity: 0.7;
 }
 
 .client-logo-box:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
     box-shadow: var(--shadow-premium);
     border-color: var(--accent-gold);
+}
+
+.client-logo-box:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
 }
 
 .client-name {
@@ -7447,4 +7478,4 @@ i:hover, .fa:hover, .fas:hover, .far:hover, .fab:hover {
     font-weight: 700;
     color: var(--primary-color);
     line-height: 1.2;
-}
+}
