@@ -4405,18 +4405,22 @@ body.menu-open {
     margin-bottom: 20px;
 }
 
-.service-single-slider {
+.service-single-slider,
+.service-single-image {
     margin-bottom: 40px;
 }
 
-.service-single-slider figure {
+.service-single-slider figure,
+.service-single-image figure {
     display: block;
     border-radius: 30px;
 }
 
-.service-single-slider img {
+.service-single-slider img,
+.service-single-image img {
     width: 100%;
-    aspect-ratio: 1 / 0.574;
+    aspect-ratio: 16 / 7;
+    max-height: 400px;
     object-fit: cover;
     border-radius: 30px;
 }
@@ -6773,11 +6777,14 @@ body.menu-open {
     .sidebar-cta-content h3 {
         font-size: 20px;
     }
-    .service-single-slider {
+    .service-single-slider,
+    .service-single-image {
         margin-bottom: 30px;
     }
     .service-single-slider figure,
-    .service-single-slider img {
+    .service-single-slider img,
+    .service-single-image figure,
+    .service-single-image img {
         border-radius: 20px;
     }
     .service-entry {
@@ -7501,10 +7508,12 @@ body.menu-open {
     .purpose-body-content {
         width: 100%;
     }
-    .service-single-slider {
+    .service-single-slider,
+    .service-single-image {
         margin-bottom: 20px;
     }
-    .service-single-slider img {
+    .service-single-slider img,
+    .service-single-image img {
         aspect-ratio: 1 / 0.7;
     }
     .service-button-prev,
