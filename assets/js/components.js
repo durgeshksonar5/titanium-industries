@@ -15,7 +15,15 @@ const HEADER_HTML = `<!-- Header Start -->
                             <ul class="navbar-nav mr-auto" id="menu">
                                 <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
                                 <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                                <li class="nav-item"><a class="nav-link" href="service.html">Services</a>
+                                <li class="nav-item submenu"><a class="nav-link" href="service.html">Services</a>
+                                    <ul>
+                                        <li><a href="services/vmc-machining.html">VMC Machining</a></li>
+                                        <li><a href="services/cnc-turning-solutions.html">CNC Turning Solutions</a></li>
+                                        <li><a href="services/oil-and-gas-components.html">Oil & Gas Components</a></li>
+                                        <li><a href="services/robotics-biw-fixtures.html">Robotics BIW Fixtures</a></li>
+                                        <li><a href="services/automobile-components.html">Automobile Components</a></li>
+                                        <li><a href="services/agricultural-machinery.html">Agricultural Machinery</a></li>
+                                    </ul>
                                 </li>
                                 <li class="nav-item"><a class="nav-link" href="image-gallery.html">Gallery</a></li>
                                 <li class="nav-item"><a class="nav-link" href="clients.html">Clients</a></li>
@@ -166,7 +174,7 @@ const FOOTER_HTML = `<!-- Footer Start -->
     <!-- Footer End -->`;
 
 (function () {
-  const isSubfolder = window.location.pathname.includes("/service/");
+  const isSubfolder = window.location.pathname.includes("/services/") || window.location.pathname.includes("/service/");
   const prefix = isSubfolder ? "../" : "";
 
   function fixPaths(html) {
@@ -194,16 +202,27 @@ const FOOTER_HTML = `<!-- Footer Start -->
     if (footerPlaceholder) footerPlaceholder.outerHTML = footerHTML;
 
     // Set active link
-    const currentPath =
-      window.location.pathname.split("/").pop() || "index.html";
-    document.querySelectorAll(".nav-link").forEach((link) => {
+    const currentPath = window.location.pathname.split("/").pop() || "index.html";
+    const isServicePage = window.location.pathname.includes("/services/");
+
+    document.querySelectorAll(".nav-link, .submenu li a").forEach((link) => {
       let href = link.getAttribute("href");
-      if (
-        href &&
-        (href.endsWith(currentPath) ||
-          (currentPath === "" && href.endsWith("index.html")))
-      ) {
-        link.parentElement.classList.add("active");
+      if (href) {
+        // Direct match
+        if (href.endsWith(currentPath) || (currentPath === "" && href.endsWith("index.html"))) {
+          link.parentElement.classList.add("active");
+          
+          // If it's a dropdown item, also highlight the parent main menu item
+          const parentSubmenu = link.closest(".submenu");
+          if (parentSubmenu) {
+            parentSubmenu.classList.add("active");
+          }
+        }
+        
+        // Highlight "Services" if on any service detail page
+        if (isServicePage && link.innerText.trim().toLowerCase() === "services") {
+           link.parentElement.classList.add("active");
+        }
       }
     });
 
