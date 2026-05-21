@@ -154,7 +154,7 @@ const FOOTER_HTML = `<!-- Footer Start -->
                         <h3>contact us</h3>
                         <ul>
                             <li><i class="fa-solid fa-phone"></i><a href="tel:9665771023">+91 96657 71023</a></li>
-                            <li><i class="fa-solid fa-envelope"></i><a href="mailto:titaniumindustries21@gmail.com">titaniumindustries21@gmail.com</a></li>
+                            <li><i class="fa-solid fa-envelope"></i><a href="mailto:Titaniumindustries1509@gmail.com">Titaniumindustries1509@gmail.com</a></li>
                             <li><i class="fa-solid fa-location-dot"></i>Sr. No 54, Plot No-83, Swami V H SOCY Industrial Estate, Pune - 411028</li>
                         </ul>
                     </div>
@@ -174,7 +174,9 @@ const FOOTER_HTML = `<!-- Footer Start -->
     <!-- Footer End -->`;
 
 (function () {
-  const isSubfolder = window.location.pathname.includes("/services/") || window.location.pathname.includes("/service/");
+  const isSubfolder =
+    window.location.pathname.includes("/services/") ||
+    window.location.pathname.includes("/service/");
   const prefix = isSubfolder ? "../" : "";
 
   function fixPaths(html) {
@@ -202,26 +204,33 @@ const FOOTER_HTML = `<!-- Footer Start -->
     if (footerPlaceholder) footerPlaceholder.outerHTML = footerHTML;
 
     // Set active link
-    const currentPath = window.location.pathname.split("/").pop() || "index.html";
+    const currentPath =
+      window.location.pathname.split("/").pop() || "index.html";
     const isServicePage = window.location.pathname.includes("/services/");
 
     document.querySelectorAll(".nav-link, .submenu li a").forEach((link) => {
       let href = link.getAttribute("href");
       if (href) {
         // Direct match
-        if (href.endsWith(currentPath) || (currentPath === "" && href.endsWith("index.html"))) {
+        if (
+          href.endsWith(currentPath) ||
+          (currentPath === "" && href.endsWith("index.html"))
+        ) {
           link.parentElement.classList.add("active");
-          
+
           // If it's a dropdown item, also highlight the parent main menu item
           const parentSubmenu = link.closest(".submenu");
           if (parentSubmenu) {
             parentSubmenu.classList.add("active");
           }
         }
-        
+
         // Highlight "Services" if on any service detail page
-        if (isServicePage && link.innerText.trim().toLowerCase() === "services") {
-           link.parentElement.classList.add("active");
+        if (
+          isServicePage &&
+          link.innerText.trim().toLowerCase() === "services"
+        ) {
+          link.parentElement.classList.add("active");
         }
       }
     });

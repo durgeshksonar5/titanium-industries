@@ -7815,3 +7815,188 @@ i:hover, .fa:hover, .fas:hover, .far:hover, .fab:hover {
         margin: 0 !important;
     }
 }
+
+/* ----------------------------------------------------------------------------------------
+* 35. Factory Showcase css
+* ---------------------------------------------------------------------------------------- */
+.factory-showcase {
+    padding: 100px 0;
+    background-color: var(--white-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.factory-showcase-image-wrapper {
+    position: relative;
+    padding: 15px;
+    z-index: 1;
+}
+
+.factory-showcase-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 30px;
+    bottom: 30px;
+    border: 3px solid var(--accent-gold);
+    border-radius: 20px;
+    z-index: -1;
+    transition: all 0.4s ease-in-out;
+}
+
+.factory-showcase-image-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-primary);
+    opacity: 0.1;
+    border-radius: 20px;
+    z-index: -2;
+}
+
+.factory-showcase-image {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-premium);
+    transition: all 0.4s ease-in-out;
+}
+
+.factory-showcase-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.factory-showcase-image-wrapper:hover .factory-showcase-image img {
+    transform: scale(1.05);
+}
+
+.factory-showcase-image-wrapper:hover::before {
+    transform: translate(-10px, -10px);
+    border-color: var(--primary-color);
+}
+
+.factory-badge {
+    position: absolute;
+    bottom: 40px;
+    right: -10px;
+    background: var(--gradient-premium);
+    padding: 20px 25px;
+    border-radius: 12px;
+    color: var(--white-color);
+    box-shadow: var(--shadow-premium);
+    border-left: 4px solid var(--accent-gold);
+    z-index: 10;
+    transition: all 0.4s ease;
+    animation: floatBadge 3s ease-in-out infinite;
+}
+
+@keyframes floatBadge {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.factory-badge h4 {
+    color: var(--accent-gold);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.factory-badge p {
+    color: var(--white-color);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0;
+}
+
+.factory-highlights {
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.factory-highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background: var(--bg-light);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.factory-highlight-item:hover {
+    background: var(--white-color);
+    border-color: var(--border-color);
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-2px);
+}
+
+.factory-highlight-item .icon-box {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white-color);
+    font-size: 24px;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
+}
+
+.factory-highlight-item:hover .icon-box {
+    transform: rotateY(180deg);
+    background: var(--gradient-gold);
+    color: var(--primary-dark);
+}
+
+.factory-highlight-content h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--heading-color);
+}
+
+.factory-highlight-content p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.factory-action-row {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+@media (max-width: 991px) {
+    .factory-showcase-image-wrapper {
+        margin-bottom: 50px;
+        padding-right: 40px;
+    }
+    .factory-badge {
+        right: 20px;
+    }
+}
