@@ -116,7 +116,7 @@ const FOOTER_HTML = `<!-- Footer Start -->
 
                         <!-- About Footer Content Start -->
                         <div class="about-footer-content">
-                            <p>Titanium Industries specializes in precision VMC and CNC machining, serving the Oil, Robotics, and Automotive sectors with excellence.</p>
+                            <p>Titanium Industries specializes in precision VMC and CNC machining,sheet metal work parts press parts ,laser cutting, Bending & Fabrication parts,  serving the Oil, Robotics, and Automotive sectors,  with excellence.</p>
                         </div>
                         <!-- About Footer Content End -->
 
