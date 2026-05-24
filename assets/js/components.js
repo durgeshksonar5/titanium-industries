@@ -168,7 +168,7 @@ const FOOTER_HTML = `<!-- Footer Start -->
                 <div class="col-lg-12">
                     <!-- Copyright Text Start -->
                     <div class="footer-copyright-text">
-                        <p style="display: block; line-height: 1.8;">Copyright © 2026 Titanium Industries. All Rights Reserved. <br> Designed & Developed by  <a href="#" style="color: var(--accent-color); font-weight: 700; display: inline-flex; align-items: center; gap: 8px; vertical-align: middle;"> <img src="assets/images/hds-logo.png" alt="HDS Logo" style="height: 28px; width: auto;"></a></p>
+                        <p style="display: block; line-height: 1.8;">Copyright © 2026 Titanium Industries. All Rights Reserved. <br> Designed & Developed by  <a href="https://www.hindustandigitalservices.com/" style="color: var(--accent-color); font-weight: 700; display: inline-flex; align-items: center; gap: 8px; vertical-align: middle;"> <img src="assets/images/hds-logo.png" alt="HDS Logo" style="height: 28px; width: auto;"></a></p>
                     </div>
                     <!-- Copyright Text End -->
                 </div>
