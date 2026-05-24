@@ -8171,3 +8171,77 @@ i:hover, .fa:hover, .fas:hover, .far:hover, .fab:hover {
     }
 }
 
+/* ----------------------------------------------------------------------------------------
+* 36. Gallery Filtering System
+* ---------------------------------------------------------------------------------------- */
+.gallery-filter-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.filter-btn {
+    font-family: var(--default-font);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary-color);
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 100px;
+    padding: 10px 28px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: var(--shadow-soft);
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-color: var(--primary-color);
+    box-shadow: 0px 8px 20px rgba(22, 43, 99, 0.15);
+}
+
+.filter-btn.active {
+    background: var(--gradient-primary);
+    color: var(--white-color);
+    border-color: transparent;
+    box-shadow: 0px 8px 20px rgba(22, 43, 99, 0.2);
+}
+
+.gallery-items .col-lg-4.col-6 {
+    transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease;
+    transform-origin: center;
+}
+
+/* Helper class to hide items during filtering with a smooth collapse */
+.gallery-item-hidden {
+    opacity: 0 !important;
+    transform: scale(0.8) !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+@media (max-width: 767px) {
+    .gallery-filter-buttons {
+        gap: 10px;
+        margin-bottom: 35px;
+    }
+    
+    .filter-btn {
+        font-size: 14px;
+        padding: 8px 18px;
+    }
+}
+
+

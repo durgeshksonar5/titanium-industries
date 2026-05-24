@@ -66,6 +66,19 @@
     <!-- Photo Gallery Section Start -->
     <div class="page-gallery">
         <div class="container">
+            <!-- Gallery Filter Buttons Start -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="gallery-filter-buttons wow fadeInUp">
+                        <button class="filter-btn active" data-filter="all">All Showcase</button>
+                        <button class="filter-btn" data-filter="machinery">Machinery & Tools</button>
+                        <button class="filter-btn" data-filter="plant">Plant & Workshop</button>
+                        <button class="filter-btn" data-filter="products">Precision Products</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Gallery Filter Buttons End -->
+
             <!-- gallery section start -->
             <div class="row gallery-items page-gallery-box">
                 <div class="col-lg-4 col-6">
@@ -711,8 +724,114 @@
     <!-- Animations JS -->
     <script src="assets/js/animations.js"></script>
     <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
     
+    <!-- Gallery Filtering Logic -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Wait a small bit to ensure any other initializations are complete
+        setTimeout(function() {
+            const galleryItems = document.querySelectorAll(".gallery-items > div");
+            
+            // 1. Dynamically assign data-category to each gallery item based on image src
+            galleryItems.forEach(item => {
+                const img = item.querySelector("img");
+                if (!img) return;
+                
+                const src = img.getAttribute("src").toLowerCase();
+                let category = "products"; // default category
+                
+                if (
+                    src.includes("stamping-machine") || 
+                    src.includes("4.18.52") || 
+                    src.includes("4.18.53") || 
+                    src.includes("4.18.54") || 
+                    src.includes("4.18.55") ||
+                    src.includes("9.47.27 am") ||
+                    src.includes("9.47.28 am") ||
+                    src.includes("9.47.29 am")
+                ) {
+                    category = "machinery";
+                } else if (
+                    src.includes("sheet-metal-factory") ||
+                    src.includes("9.47.30 am") ||
+                    src.includes("9.47.31 am") ||
+                    src.includes("9.47.33 am") ||
+                    src.includes("9.47.34 am") ||
+                    src.includes("9.47.35 am")
+                ) {
+                    category = "plant";
+                } else {
+                    category = "products";
+                }
+                
+                item.setAttribute("data-category", category);
+            });
 
+            // 2. Set up Magnific Popup dynamic updates
+            function updateMagnificPopup(filterClass) {
+                const $gallery = $('.gallery-items');
+                if ($gallery.data('magnificPopup')) {
+                    $gallery.data('magnificPopup').destroy();
+                }
+                
+                $gallery.magnificPopup({
+                    delegate: filterClass === 'all' ? 'a' : 'div:not(.gallery-item-hidden) a',
+                    type: 'image',
+                    closeOnContentClick: false,
+                    closeBtnInside: false,
+                    mainClass: 'mfp-with-zoom',
+                    image: {
+                        verticalFit: true,
+                    },
+                    gallery: {
+                        enabled: true
+                    },
+                    zoom: {
+                        enabled: true,
+                        duration: 300,
+                        opener: function(element) {
+                            return element.find('img');
+                        }
+                    }
+                });
+            }
+
+            // 3. Filter button click handler
+            const filterButtons = document.querySelectorAll(".filter-btn");
+            filterButtons.forEach(button => {
+                button.addEventListener("click", function() {
+                    filterButtons.forEach(btn => btn.classList.remove("active"));
+                    this.classList.add("active");
+                    
+                    const filterValue = this.getAttribute("data-filter");
+                    
+                    galleryItems.forEach(item => {
+                        const itemCategory = item.getAttribute("data-category");
+                        
+                        if (filterValue === "all" || itemCategory === filterValue) {
+                            item.classList.remove("gallery-item-hidden");
+                            
+                            // Re-trigger WOW animation if WOW.js is loaded
+                            const wowElement = item.querySelector('.wow');
+                            if (wowElement && typeof WOW !== 'undefined') {
+                                wowElement.style.visibility = 'visible';
+                                wowElement.style.animationName = 'fadeInUp';
+                            }
+                        } else {
+                            item.classList.add("gallery-item-hidden");
+                        }
+                    });
+                    
+                    updateMagnificPopup(filterValue);
+                });
+            });
+
+            // Initial Magnific Popup setup
+            updateMagnificPopup('all');
+        }, 100);
+    });
+    </script>
 </body>
 
 </html>
