@@ -40,7 +40,7 @@ const HEADER_HTML = `<!-- Header Start -->
                                 </div>
                                 <div class="header-contact-item-content">
                                     <p>call us now</p>
-                                    <h3><a href="tel:9665771023">+91 96657 71023</a></h3>
+                                    <h3><a href="tel:9665771023">+91 96657 71023</a> <br> <a href="tel:9373802001">+91 93738 02001</a></h3>
                                 </div>
                             </div>
                             <!-- Header Contact Item End -->
@@ -86,6 +86,7 @@ const HEADER_HTML = `<!-- Header Start -->
                         <div class="mobile-contact">
                             <p>Get in touch</p>
                             <a href="tel:9665771023"><i class="fa-solid fa-phone"></i> +91 96657 71023</a>
+                            <a href="tel:9373802001"><i class="fa-solid fa-phone"></i> +91 93738 02001</a>
                         </div>
                         <div class="mobile-social">
                             <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
@@ -154,7 +155,10 @@ const FOOTER_HTML = `<!-- Footer Start -->
                         <h3>contact us</h3>
                         <ul>
                             <li><i class="fa-solid fa-phone"></i><a href="tel:9665771023">+91 96657 71023</a></li>
+                            <li><i class="fa-solid fa-phone"></i><a href="tel:9373802001">+91 93738 02001</a></li>
                             <li><i class="fa-solid fa-envelope"></i><a href="mailto:Titaniumindustries1509@gmail.com">Titaniumindustries1509@gmail.com</a></li>
+                            <li><i class="fa-solid fa-envelope"></i><a href="mailto:Mayureshwarindustries945@gmail.com">Mayureshwarindustries945@gmail.com</a></li>
+                            <li><i class="fa-solid fa-envelope"></i><a href="mailto:sagartaware8686@gmail.com">sagartaware8686@gmail.com</a></li>
                             <li><i class="fa-solid fa-location-dot"></i>Sr. No 54, Plot No-83, Swami V H SOCY Industrial Estate, Pune - 411028</li>
                         </ul>
                     </div>
