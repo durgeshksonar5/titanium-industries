@@ -324,5 +324,80 @@ const FOOTER_HTML = `<!-- Footer Start -->
         });
       });
     }
+
+    // -----------------------------------------------------------------
+    // Floating Contact Actions & Navigation Group Injection
+    // -----------------------------------------------------------------
+    const FLOATING_ACTION_GROUP_HTML = `
+      <div class="floating-action-group">
+          <!-- Call Button -->
+          <a href="tel:+919665771023" class="floating-btn btn-call" aria-label="Call Us Now">
+              <i class="fa-solid fa-phone"></i>
+          </a>
+          <!-- WhatsApp Chat Button -->
+          <a href="https://wa.me/919665771023?text=Hi%20Titanium%20Industries,%20I'm%20interested%20in%20your%20services!" target="_blank" rel="noopener" class="floating-btn btn-whatsapp" aria-label="Chat on WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <!-- Scroll to Top Button -->
+          <div class="floating-btn btn-scroll-top" id="scrollToTopBtn" role="button" aria-label="Scroll to Top">
+              <svg class="progress-circle" width="100%" height="100%" viewBox="0 0 100 100">
+                  <path d="M50,3 a47,47 0 0,1 0,94 a47,47 0 0,1 0,-94" />
+              </svg>
+              <span class="scroll-icon">
+                  <i class="fa-solid fa-chevron-up"></i>
+              </span>
+          </div>
+      </div>
+    `;
+
+    // Append to body if not already present
+    if (!document.querySelector(".floating-action-group")) {
+      document.body.insertAdjacentHTML("beforeend", FLOATING_ACTION_GROUP_HTML);
+    }
+
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    const progressPath = scrollToTopBtn ? scrollToTopBtn.querySelector("path") : null;
+
+    if (scrollToTopBtn && progressPath) {
+      // Calculate dynamic length of the circle path
+      const pathLength = progressPath.getTotalLength();
+      progressPath.style.strokeDasharray = `${pathLength} ${pathLength}`;
+      progressPath.style.strokeDashoffset = pathLength;
+
+      const updateScrollProgress = () => {
+        const scrollPosition = window.scrollY || window.pageYOffset;
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+        // Toggle active class (visibility and entry transition)
+        if (scrollPosition > 300) {
+          scrollToTopBtn.classList.add("active");
+        } else {
+          scrollToTopBtn.classList.remove("active");
+        }
+
+        // Fill progress circle path
+        if (totalHeight > 0) {
+          const progress = pathLength - (scrollPosition * pathLength) / totalHeight;
+          progressPath.style.strokeDashoffset = Math.max(0, Math.min(pathLength, progress));
+        } else {
+          progressPath.style.strokeDashoffset = pathLength;
+        }
+      };
+
+      // Set initial values
+      updateScrollProgress();
+
+      // Listen for scroll with passive listener for performance
+      window.addEventListener("scroll", updateScrollProgress, { passive: true });
+
+      // Perfect tap/click handling for smooth scroll to top
+      scrollToTopBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    }
   });
 })();

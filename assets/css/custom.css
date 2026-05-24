@@ -8001,3 +8001,173 @@ i:hover, .fa:hover, .fas:hover, .far:hover, .fab:hover {
         right: 20px;
     }
 }
+
+/* ----------------------------------------------------------------------------------------
+* 35. Floating Contact & Navigation Action Group (Interactive Stack)
+* ---------------------------------------------------------------------------------------- */
+.floating-action-group {
+    position: fixed;
+    bottom: calc(30px + env(safe-area-inset-bottom, 0px));
+    right: calc(30px + env(safe-area-inset-right, 0px));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 99999; /* Ensure it stays on top of all headers/footers/overlays */
+    pointer-events: none; /* Let clicks pass through container gaps */
+}
+
+.floating-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto; /* Re-enable clicks on buttons */
+    box-shadow: var(--shadow-soft);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    text-decoration: none;
+    position: relative;
+}
+
+/* Hover state scale & shadow glow */
+.floating-btn:hover {
+    transform: translateY(-5px) scale(1.08);
+    box-shadow: var(--shadow-premium);
+}
+
+.floating-btn:active {
+    transform: translateY(-2px) scale(0.92) !important;
+    transition: transform 0.1s ease;
+}
+
+/* Call Button Styles */
+.btn-call {
+    background: var(--gradient-primary);
+    color: var(--white-color) !important;
+    margin-bottom: 15px;
+}
+
+.btn-call:hover {
+    box-shadow: 0px 10px 25px rgba(62, 123, 250, 0.4);
+}
+
+.btn-call i {
+    font-size: 22px; /* Visual sizing balance */
+}
+
+/* WhatsApp Button Styles */
+.btn-whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: var(--white-color) !important;
+    margin-bottom: 15px;
+}
+
+.btn-whatsapp:hover {
+    box-shadow: 0px 10px 25px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp i {
+    font-size: 24px; /* Visual sizing balance */
+}
+
+/* Scroll to Top Button Styles */
+.btn-scroll-top {
+    background: rgba(22, 43, 99, 0.85); /* Primary color with transparency */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    transform: scale(0.8);
+    transition: height 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    overflow: hidden;
+}
+
+.btn-scroll-top.active {
+    opacity: 1;
+    visibility: visible;
+    height: 50px;
+}
+
+/* Scroll Icon */
+.btn-scroll-top .scroll-icon {
+    font-size: 20px; /* Visual sizing balance */
+    color: var(--accent-gold); /* Gold arrow */
+    transition: all 0.3s ease-in-out;
+    z-index: 2;
+}
+
+.btn-scroll-top:hover .scroll-icon {
+    color: var(--white-color);
+    animation: scrollBtnBounce 1.2s infinite;
+}
+
+/* Keyframes for Arrow Bouncing */
+@keyframes scrollBtnBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+/* Progress SVG */
+.btn-scroll-top .progress-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg); /* Start progress from the top */
+    pointer-events: none;
+    z-index: 1;
+}
+
+.btn-scroll-top .progress-circle path {
+    fill: none;
+    stroke: var(--accent-gold);
+    stroke-width: 4px;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 10ms linear;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 767px) {
+    .floating-action-group {
+        bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+        right: calc(20px + env(safe-area-inset-right, 0px));
+    }
+
+    .floating-btn {
+        width: 48px;
+        height: 48px;
+    }
+
+    .btn-call {
+        margin-bottom: 12px;
+    }
+
+    .btn-call i {
+        font-size: 19px; /* Visual sizing balance */
+    }
+
+    .btn-whatsapp {
+        margin-bottom: 12px;
+    }
+
+    .btn-whatsapp i {
+        font-size: 21px; /* Visual sizing balance */
+    }
+
+    .btn-scroll-top.active {
+        height: 48px;
+    }
+
+    .btn-scroll-top .scroll-icon {
+        font-size: 17px; /* Visual sizing balance */
+    }
+}
+
