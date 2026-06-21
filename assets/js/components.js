@@ -159,7 +159,8 @@ const FOOTER_HTML = `<!-- Footer Start -->
                             <li><i class="fa-solid fa-envelope"></i><a href="mailto:Titaniumindustries1509@gmail.com">Titaniumindustries1509@gmail.com</a></li>
                             <li><i class="fa-solid fa-envelope"></i><a href="mailto:Mayureshwarindustries945@gmail.com">Mayureshwarindustries945@gmail.com</a></li>
                             <li><i class="fa-solid fa-envelope"></i><a href="mailto:sagartaware8686@gmail.com">sagartaware8686@gmail.com</a></li>
-                            <li><i class="fa-solid fa-location-dot"></i>Sr. No 54, Plot No-83, Swami V H SOCY Industrial Estate, Pune - 411028</li>
+                            <li><i class="fa-solid fa-location-dot"></i>Sr. No 54, Plot No-83 Swami V H SOCY Industrial Estate Handewadi Road ,Hadapsar , Pune,
+Maharashtra, 411028</li>
                         </ul>
                     </div>
                     <!-- Footer Contact Box End -->
@@ -356,7 +357,9 @@ const FOOTER_HTML = `<!-- Footer Start -->
     }
 
     const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-    const progressPath = scrollToTopBtn ? scrollToTopBtn.querySelector("path") : null;
+    const progressPath = scrollToTopBtn
+      ? scrollToTopBtn.querySelector("path")
+      : null;
 
     if (scrollToTopBtn && progressPath) {
       // Calculate dynamic length of the circle path
@@ -366,7 +369,8 @@ const FOOTER_HTML = `<!-- Footer Start -->
 
       const updateScrollProgress = () => {
         const scrollPosition = window.scrollY || window.pageYOffset;
-        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const totalHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
 
         // Toggle active class (visibility and entry transition)
         if (scrollPosition > 300) {
@@ -377,8 +381,12 @@ const FOOTER_HTML = `<!-- Footer Start -->
 
         // Fill progress circle path
         if (totalHeight > 0) {
-          const progress = pathLength - (scrollPosition * pathLength) / totalHeight;
-          progressPath.style.strokeDashoffset = Math.max(0, Math.min(pathLength, progress));
+          const progress =
+            pathLength - (scrollPosition * pathLength) / totalHeight;
+          progressPath.style.strokeDashoffset = Math.max(
+            0,
+            Math.min(pathLength, progress),
+          );
         } else {
           progressPath.style.strokeDashoffset = pathLength;
         }
@@ -388,14 +396,16 @@ const FOOTER_HTML = `<!-- Footer Start -->
       updateScrollProgress();
 
       // Listen for scroll with passive listener for performance
-      window.addEventListener("scroll", updateScrollProgress, { passive: true });
+      window.addEventListener("scroll", updateScrollProgress, {
+        passive: true,
+      });
 
       // Perfect tap/click handling for smooth scroll to top
       scrollToTopBtn.addEventListener("click", (e) => {
         e.preventDefault();
         window.scrollTo({
           top: 0,
-          behavior: "smooth"
+          behavior: "smooth",
         });
       });
     }
